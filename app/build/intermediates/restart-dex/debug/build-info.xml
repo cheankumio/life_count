@@ -5,22 +5,22 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="3329312871498"
+    timestamp="6391615389154"
     token="-8663740221015695698"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="74" />
+        duration="68" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="5" />
+        duration="7" />
     <task
         name="verifier"
-        duration="1" />
+        duration="0" />
 
     <artifact
         location="D:\androidSample\lifetime\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
@@ -34,7 +34,7 @@
             type="MAIN" />
     </build>
     <build
-        timestamp="3329312871498"
+        timestamp="6391615389154"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\androidSample\lifetime\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"

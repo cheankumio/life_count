@@ -17,7 +17,8 @@ import java.util.Locale;
 
 /**
  * Created by c1103304 on 2017/1/12.
- * 在背景持續計算時間，並將剩餘時間儲存在 paramStatic.lifesecNOW
+ * 在背景持續計算時間，並將剩餘時間儲存在 OUTPUT_REMAINDER_NUM
+ *
  */
 
 public class MyService extends Service{
@@ -51,7 +52,7 @@ public class MyService extends Service{
                 maxnum = sp.getLong("unMAXLife", 0);
                 Log.d("MYLOG", "uneditMAX<2 : " + maxnum);
             }else{
-                if(maxnum<2) maxnum = paramStatic.uneditMAX;
+                if(maxnum!=paramStatic.uneditMAX) maxnum = paramStatic.uneditMAX;
                 Bundle message = new Bundle();
                 long remaindernum = remainder();
                 message.putLong("Key", remaindernum);

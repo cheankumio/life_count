@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -126,4 +127,11 @@ public class NowMainActivity extends AppCompatActivity {
 
 
     }
+
+    public void settingBtn(View view){
+        Intent intent = new Intent();
+        intent.setClass(this,signUpUser.class);
+        startActivity(intent);
+    }
+
 }
