@@ -36,10 +36,17 @@ public class paramStatic {
     public static int long2int(long now){
         float a = now/1000000;
         float b = lifesecMAX/1000000;
+        return scalur(a,b);
+    }
+    public static int long2int(long now, long max){
+        float a = now/1000000;
+        float b = max/1000000;
+        return scalur(a,b);
+    }
+    private static int scalur(float a, float b){
         long tmp = (long)((a/b)*100);
         Log.d("MYLOG","tmp: "+tmp+" now: "+a/b);
         int s = (Integer.parseInt(String.valueOf(tmp)));
-        Log.d("MYLOG","%: "+s);
         return s;
     }
 }

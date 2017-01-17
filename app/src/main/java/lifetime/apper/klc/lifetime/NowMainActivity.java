@@ -124,8 +124,6 @@ public class NowMainActivity extends AppCompatActivity {
         remainday.setText(n[3]+" 天");
         remainmon.setText(n[4]+" 月");
         Log.d("MYLOG","剩餘: "+n[5]+" 年");
-
-
     }
 
     public void settingBtn(View view){
