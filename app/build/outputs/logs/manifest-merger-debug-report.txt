@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:2:1-23:12
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:5:5-32:19
 MERGED from [com.android.support:appcompat-v7:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:25:5-20
@@ -52,10 +52,30 @@ activity#lifetime.apper.klc.lifetime.signUpUser
 ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:18:9-48
 	android:name
 		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:18:19-45
-service#lifetime.apper.klc.lifetime.MyService
-ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:19:9-45
+service#lifetime.apper.klc.lifetime.Service.MyService
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:19:9-53
 	android:name
-		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:19:18-43
+		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:19:18-51
+service#lifetime.apper.klc.lifetime.Service.appWidget_Service
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:21:9-62
+	android:name
+		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:21:18-59
+receiver#lifetime.apper.klc.lifetime.LifeCount_appWidget
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:23:9-31:20
+	android:name
+		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:23:19-54
+intent-filter#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:24:13-26:29
+action#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:25:17-84
+	android:name
+		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:25:25-81
+meta-data#android.appwidget.provider
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:28:13-30:70
+	android:resource
+		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:30:17-67
+	android:name
+		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:29:17-58
 uses-sdk
 INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:21:5-23:78

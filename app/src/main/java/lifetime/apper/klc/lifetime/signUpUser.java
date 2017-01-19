@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
+import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
+import lifetime.apper.klc.lifetime.Auxiliary.pickerdialogs;
+
 /**
  * Created by c1103304 on 2017/1/12.
  * 第一次使用之使用者註冊畫面

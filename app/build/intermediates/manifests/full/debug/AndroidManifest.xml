@@ -23,7 +23,18 @@
         </activity>
         <activity android:name="lifetime.apper.klc.lifetime.signUpUser" />
 
-        <service android:name="lifetime.apper.klc.lifetime.MyService" />
+        <service android:name="lifetime.apper.klc.lifetime.Service.MyService" />
+        <service android:name="lifetime.apper.klc.lifetime.Service.appWidget_Service" />
+
+        <receiver android:name="lifetime.apper.klc.lifetime.LifeCount_appWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/life_count_app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

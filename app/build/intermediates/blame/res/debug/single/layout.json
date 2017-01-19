@@ -20,6 +20,10 @@
         "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\layout\\life_count_app_widget.xml",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\layout\\life_count_app_widget.xml"
+    },
+    {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_activity_chooser_view.xml"
     },
