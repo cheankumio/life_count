@@ -14,8 +14,12 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
 import lifetime.apper.klc.lifetime.Auxiliary.pickerdialogs;
+import lifetime.apper.klc.lifetime.Auxiliary.staticParam;
+import lifetime.apper.klc.lifetime.Auxiliary.userPerferences;
 
 /**
  * Created by c1103304 on 2017/1/12.
@@ -26,11 +30,13 @@ public class signUpUser extends AppCompatActivity {
     TextView mbornDate;
     EditText muserName,mwishAge;
     SharedPreferences sp;
+    int id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_layout);
         sp = getSharedPreferences("DATA",0);
+        id = sp.getInt("ID",0);
         setElemtent();
     }
 
@@ -43,14 +49,18 @@ public class signUpUser extends AppCompatActivity {
 
     //讀取使用者資訊，並存入SharePreferences
     public void savedata(View view){
-        paramStatic.username = muserName.getText().toString();
-        paramStatic.endage = Integer.parseInt(mwishAge.getText().toString());
+        userPerferences d1 = new userPerferences();
+        d1.setId(id);
+        d1.setName(muserName.getText().toString());
         long[] tmplong = getLifeMax();
-        paramStatic.lifesecMAX = tmplong[1]; //最大壽命(秒)
-        paramStatic.lifesecNOW = tmplong[0]; //已過壽命(秒)
-        paramStatic.uneditMAX = tmplong[2]; //未修正過的最大值
+        d1.setMaxSec(tmplong[2]/1000);   //最大值 / 1000 縮小範圍
+        d1.setBornSec(tmplong[3]/1000);  //出生年齡 / 1000 縮小範圍
+        NowMainActivity.realm.copyToRealmOrUpdate(d1);
+        NowMainActivity.realm.commitTransaction();
+
         Log.d("MYLOG","maxlife: "+tmplong[1]+" passlife: "+tmplong[0]+" uneditmax: "+tmplong[2]);
-        save2sharepreferences();
+        sp.edit().putInt("ID",++id);
+        finish();
     }
 
     //跳出選擇日期視窗
@@ -59,29 +69,15 @@ public class signUpUser extends AppCompatActivity {
         mpickdialogs.show(getFragmentManager(),"date_picker");
     }
 
-    //儲存資料
-     public void save2sharepreferences(){
-        sp.edit().putInt("YEAR",paramStatic.year)
-                .putInt("MONTH",paramStatic.month)
-                .putInt("DAY",paramStatic.day)
-                .putString("NAME",paramStatic.username)
-                .putLong("MAXLife",paramStatic.lifesecMAX)
-                .putLong("unMAXLife",paramStatic.uneditMAX)
-                .putLong("PASSLife",paramStatic.lifesecNOW)
-                .commit();
-         //資料儲存完畢後關閉目前Activity
-         finish();
-    }
-
 
     //計算生命最大值
     @TargetApi(Build.VERSION_CODES.N)
     public long[] getLifeMax(){
 
-        int year = paramStatic.year;
-        int month = paramStatic.month;
-        int day = paramStatic.day;
-        int age = paramStatic.endage;
+        int year = staticParam.year;
+        int month = staticParam.month;
+        int day = staticParam.day;
+        int age = Integer.parseInt(mwishAge.getText().toString());
 
         Calendar mcalendarMAX = Calendar.getInstance(Locale.getDefault());
         //取得目前時間秒數
@@ -97,7 +93,11 @@ public class signUpUser extends AppCompatActivity {
         long lifemax = MaxLife - BornLife;   // 最大年齡 - 出生年齡 = 總壽命長度
         long lifepass = NowLife - BornLife;  // 現在年齡 - 出生年齡 = 已過秒數
 
-        long[] returnlong ={lifepass,lifemax,MaxLife};
+        long[] returnlong ={lifepass,lifemax,MaxLife,BornLife};
+        Log.d("MYLOG",lifepass+", "+lifemax+" ,"+MaxLife+" ,"+BornLife);
         return returnlong;
     }
+
+
+
 }

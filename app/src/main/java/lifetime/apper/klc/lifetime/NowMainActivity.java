@@ -12,7 +12,18 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
+import io.realm.annotations.RealmModule;
 import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
+import lifetime.apper.klc.lifetime.Auxiliary.userPerferences;
 import lifetime.apper.klc.lifetime.Service.MyService;
 
 
@@ -22,17 +33,25 @@ import lifetime.apper.klc.lifetime.Service.MyService;
 
 public class NowMainActivity extends AppCompatActivity {
     ProgressBar progressBar;
+    public static Realm realm;
     TextView remainsec,remainmin,remainhr,remainday,remainmon,str1;
     SharedPreferences sp;
     //Service過濾器
     IntentFilter filter;
     //Service廣播接收
     BroadcastReceiver receiver;
-    long remainder;
+    long[] remainder;
+    public static List<userPerferences> item;
+    @RealmModule(classes = {userPerferences.class})
+    public static class Module {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.now_main_layout);
+        item = new ArrayList<>();
+        realmSetting();
         //註冊事件
         getLayoutElement();
         //取得使用者資訊
@@ -49,7 +68,7 @@ public class NowMainActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Bundle message = intent.getExtras();
-                remainder = message.getLong("Key");
+                remainder = message.getLongArray("Key");
 
                 //元件顯示資訊更新
                 updateElement();
@@ -64,31 +83,25 @@ public class NowMainActivity extends AppCompatActivity {
 
     //取得使用者資訊
     public void getUserInfo(){
-        sp = getSharedPreferences("DATA",0);
-        long life = sp.getLong("MAXLife",0);
-        progressBar.setMax(100);
-        Log.d("MYLOG","life: "+life);
-        if(life < 5){
-            Intent intent = new Intent();
-            intent.setClass(this,signUpUser.class);
-            startActivity(intent);
-        }else{
-            paramStatic.year = sp.getInt("YEAR",0);
-            paramStatic.month = sp.getInt("MONTH",0);
-            paramStatic.day = sp.getInt("DAY",0);
-            paramStatic.username = sp.getString("NAME","");
-            paramStatic.lifesecMAX = sp.getLong("MAXLife",0);
-            paramStatic.lifesecNOW = sp.getLong("PASSLife",0);
-            paramStatic.uneditMAX = sp.getLong("unMAXLife",0);
+        RealmQuery<userPerferences> query = NowMainActivity.realm.where(userPerferences.class);
+        RealmResults<userPerferences> result = query.findAll();
+        for (userPerferences d : result) {
+            item.add(d);
         }
+        for(userPerferences tmp : item){
+            Log.d("MYLOG","ID: "+tmp.getId()+" ,Name: "+tmp.getName()+" ,Max: "+tmp.getMaxSec()+" ,Born: "+tmp.getBornSec());
+        }
+        progressBar.setMax(100);
+//        Log.d("MYLOG","life: "+life);
+
+//            Intent intent = new Intent();
+//            intent.setClass(this,signUpUser.class);
+//            startActivity(intent);
     }
 
     //覆寫onDestroy，在關閉APP後進行資料儲存
     @Override
     protected void onDestroy(){
-        sp.edit().putLong("unMAXLife",paramStatic.uneditMAX)
-                .putLong("PASSLife",paramStatic.lifesecNOW)
-                .commit();
         unregisterReceiver(receiver);
         super.onDestroy();
     }
@@ -118,20 +131,57 @@ public class NowMainActivity extends AppCompatActivity {
 
     //更新使用者資訊
     public void updateElement(){
-        long[] n = paramStatic.timescalur(remainder);
-        progressBar.setProgress(paramStatic.long2int(remainder));
-        remainsec.setText(n[0]+" 秒");
-        remainmin.setText(n[1]+" 分鐘");
-        remainhr.setText(n[2]+" 小時");
-        remainday.setText(n[3]+" 天");
-        remainmon.setText(n[4]+" 月");
-        Log.d("MYLOG","剩餘: "+n[5]+" 年");
+        for(int i=0;i<item.size();i++) {
+            long newRemainder = remainder[i];
+            long maxnum = item.get(i).getMaxSec();
+            long[] n = paramStatic.timescalur(newRemainder);
+            progressBar.setProgress(paramStatic.long2int(newRemainder,maxnum));
+            remainsec.setText(n[0] + " 秒");
+            remainmin.setText(n[1] + " 分鐘");
+            remainhr.setText(n[2] + " 小時");
+            remainday.setText(n[3] + " 天");
+            remainmon.setText(n[4] + " 月");
+            Log.d("MYLOG", "剩餘: " + n[5] + " 年");
+        }
     }
 
     public void settingBtn(View view){
         Intent intent = new Intent();
         intent.setClass(this,signUpUser.class);
         startActivity(intent);
+    }
+
+    private void realmSetting(){
+        // Realm 基本屬性配置
+        RealmConfiguration config = new RealmConfiguration.Builder(this)
+                .name("database_name.realm")
+                .setModules(new Module())
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        // 實例Realm，並設置其基本屬性config
+        realm = Realm.getInstance(config);
+        // 啟動Realm 資料庫
+        realm.beginTransaction();
+
+        //insertdata();
+    }
+
+
+    private void insertdata(){
+//        for(int i =0;i<200;i++) {
+//            userPerferences d1 = new userPerferences();
+//            d1.setId(i);
+//            d1.setName("a"+i);
+//            d1.setMaxSec(99995-i);
+//            d1.setBornSec(4121+(i*2));
+//            realm.copyToRealmOrUpdate(d1);
+//        }
+//        realm.commitTransaction();
+        RealmQuery<userPerferences> query = realm.where(userPerferences.class);
+        RealmResults<userPerferences> result = query.findAll();
+        for (userPerferences d : result) {
+            Log.d("MYLOG","ID: "+d.getId()+" ,Name: "+d.getName()+" ,Max: "+d.getMaxSec());
+        }
     }
 
 }

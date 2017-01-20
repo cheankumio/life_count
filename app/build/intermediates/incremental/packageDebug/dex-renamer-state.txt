@@ -1,4 +1,4 @@
-#Thu Jan 19 14:46:28 CST 2017
+#Fri Jan 20 14:05:33 CST 2017
 base.0=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ebf45a9fe2a40bc8cf9af3a75a2f694d12d73277
 renamed.1=classes.dex
 renamed.0=classes2.dex

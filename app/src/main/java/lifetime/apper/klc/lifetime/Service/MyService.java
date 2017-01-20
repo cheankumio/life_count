@@ -15,6 +15,7 @@ import android.util.Log;
 import java.util.Locale;
 
 import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
+import lifetime.apper.klc.lifetime.NowMainActivity;
 
 /**
  * Created by c1103304 on 2017/1/12.
@@ -25,15 +26,22 @@ import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
 public class MyService extends Service{
     private Handler handler = new Handler();
     public static boolean nowState=false;
-    public static long OUTPUT_REMAINDER_NUM;
-    SharedPreferences sp;
-    long maxnum = 0;
+    public static long[] OUTPUT_REMAINDER_NUM;
+    long[] maxnum;
+    String[] name;
+    int counts;
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("MYLOG","Service ON");
-        sp = getSharedPreferences("DATA",0);
-        maxnum = sp.getLong("unMAXLife",0);
-        paramStatic.uneditMAX = maxnum;
+        counts = NowMainActivity.item.size();
+        maxnum = new long[counts+1];
+        name = new String[counts+1];
+
+        for(int i=0; i<counts;i++){
+            maxnum[i] = NowMainActivity.item.get(i).getMaxSec();
+            name[i] = NowMainActivity.item.get(i).getName();
+        }
+
         handler.postDelayed(showTime, 1000);
         return super.onStartCommand(intent, flags, startId);
     }
@@ -48,30 +56,29 @@ public class MyService extends Service{
         public void run() {
             //設定service為已啟動
             nowState=true;
-            if(paramStatic.uneditMAX<2) {
-                SharedPreferences sp = getSharedPreferences("DATA", 0);
-                maxnum = sp.getLong("unMAXLife", 0);
-                Log.d("MYLOG", "uneditMAX<2 : " + maxnum);
-            }else{
-                if(maxnum!=paramStatic.uneditMAX) maxnum = paramStatic.uneditMAX;
-                Bundle message = new Bundle();
-                long remaindernum = remainder();
-                message.putLong("Key", remaindernum);
-                Intent intent = new Intent("remaindertime");
-                intent.putExtras(message);
-                sendBroadcast(intent);
-                paramStatic.lifesecNOW = remaindernum;
-                OUTPUT_REMAINDER_NUM = remaindernum;
-                Log.d("MYLOG", "uneditMAX<2 : " + remaindernum);
+            Bundle message = new Bundle();
+            long[] remaindernum = remainder();
+            message.putLongArray("Key", remaindernum);
+            Intent intent = new Intent("remaindertime");
+            intent.putExtras(message);
+            sendBroadcast(intent);
+            OUTPUT_REMAINDER_NUM = remaindernum;
+            Log.d("MYLOG", "uneditMAX<2 : " + remaindernum[0]);
 //              Toast.makeText(getApplicationContext(), "更新資訊", Toast.LENGTH_LONG).show();
-            }
             handler.postDelayed(this, 1000);
         }
     };
 
+    // 計算餘數
     @TargetApi(Build.VERSION_CODES.N)
-    private long remainder(){
+    private long[] remainder(){
         Calendar mCalendar = Calendar.getInstance(Locale.getDefault());
-        return maxnum - mCalendar.getTimeInMillis();
+        int n=0;
+        long[] longtmp = new long[counts+1];
+        for(long tmp:maxnum){
+            longtmp[n] = tmp - mCalendar.getTimeInMillis();
+            ++n;
+        }
+        return longtmp;
     }
 }

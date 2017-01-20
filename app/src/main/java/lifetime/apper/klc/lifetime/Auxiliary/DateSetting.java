@@ -18,8 +18,8 @@ public class DateSetting implements DatePickerDialog.OnDateSetListener{
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        paramStatic.year = year;
-        paramStatic.month = month;
-        paramStatic.day = dayOfMonth;
+        staticParam.year = year;
+        staticParam.month = month;
+        staticParam.day = dayOfMonth;
     }
 }
