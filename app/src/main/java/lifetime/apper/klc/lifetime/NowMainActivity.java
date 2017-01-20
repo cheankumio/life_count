@@ -35,23 +35,22 @@ public class NowMainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     public static Realm realm;
     TextView remainsec,remainmin,remainhr,remainday,remainmon,str1;
-    SharedPreferences sp;
     //Service過濾器
     IntentFilter filter;
     //Service廣播接收
     BroadcastReceiver receiver;
+    SharedPreferences sp;
     long[] remainder;
-    public static List<userPerferences> item;
+
     @RealmModule(classes = {userPerferences.class})
     public static class Module {
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.now_main_layout);
-        item = new ArrayList<>();
-        realmSetting();
+        sp = getSharedPreferences("DATA",0);
+
         //註冊事件
         getLayoutElement();
         //取得使用者資訊
@@ -83,13 +82,14 @@ public class NowMainActivity extends AppCompatActivity {
 
     //取得使用者資訊
     public void getUserInfo(){
-        RealmQuery<userPerferences> query = NowMainActivity.realm.where(userPerferences.class);
-        RealmResults<userPerferences> result = query.findAll();
-        for (userPerferences d : result) {
-            item.add(d);
-        }
-        for(userPerferences tmp : item){
-            Log.d("MYLOG","ID: "+tmp.getId()+" ,Name: "+tmp.getName()+" ,Max: "+tmp.getMaxSec()+" ,Born: "+tmp.getBornSec());
+        if(sp.getInt("ID",0)<1){
+            Intent intent = new Intent();
+            intent.setClass(this,signUpUser.class);
+            startActivity(intent);
+        }else{
+            for(userPerferences tmp : MyService.item){
+                Log.d("MYLOG","ID: "+tmp.getId()+" ,Name: "+tmp.getName()+" ,Max: "+tmp.getMaxSec()+" ,Born: "+tmp.getBornSec());
+            }
         }
         progressBar.setMax(100);
 //        Log.d("MYLOG","life: "+life);
@@ -131,9 +131,9 @@ public class NowMainActivity extends AppCompatActivity {
 
     //更新使用者資訊
     public void updateElement(){
-        for(int i=0;i<item.size();i++) {
+        for(int i=0;i<MyService.item.size();i++) {
             long newRemainder = remainder[i];
-            long maxnum = item.get(i).getMaxSec();
+            long maxnum = MyService.item.get(i).getMaxSec();
             long[] n = paramStatic.timescalur(newRemainder);
             progressBar.setProgress(paramStatic.long2int(newRemainder,maxnum));
             remainsec.setText(n[0] + " 秒");
@@ -151,20 +151,7 @@ public class NowMainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void realmSetting(){
-        // Realm 基本屬性配置
-        RealmConfiguration config = new RealmConfiguration.Builder(this)
-                .name("database_name.realm")
-                .setModules(new Module())
-                .deleteRealmIfMigrationNeeded()
-                .build();
-        // 實例Realm，並設置其基本屬性config
-        realm = Realm.getInstance(config);
-        // 啟動Realm 資料庫
-        realm.beginTransaction();
 
-        //insertdata();
-    }
 
 
     private void insertdata(){

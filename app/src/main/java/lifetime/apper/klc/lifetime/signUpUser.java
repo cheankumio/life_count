@@ -20,6 +20,7 @@ import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
 import lifetime.apper.klc.lifetime.Auxiliary.pickerdialogs;
 import lifetime.apper.klc.lifetime.Auxiliary.staticParam;
 import lifetime.apper.klc.lifetime.Auxiliary.userPerferences;
+import lifetime.apper.klc.lifetime.Service.MyService;
 
 /**
  * Created by c1103304 on 2017/1/12.
@@ -59,7 +60,14 @@ public class signUpUser extends AppCompatActivity {
         NowMainActivity.realm.commitTransaction();
 
         Log.d("MYLOG","maxlife: "+tmplong[1]+" passlife: "+tmplong[0]+" uneditmax: "+tmplong[2]);
-        sp.edit().putInt("ID",++id);
+
+        sp.edit().putInt("ID",++id).commit();
+        RealmQuery<userPerferences> query = NowMainActivity.realm.where(userPerferences.class);
+        RealmResults<userPerferences> result = query.findAll();
+        for (userPerferences d : result) {
+            MyService.item.add(d);
+        }
+
         finish();
     }
 
