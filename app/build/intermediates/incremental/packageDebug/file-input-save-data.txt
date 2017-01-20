@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jan 20 16:29:40 CST 2017
+#Fri Jan 20 17:46:16 CST 2017
 210.set=ANDROID_RESOURCE
 14.set=DEX
 180.file=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\jars\\2000\\1f\\main.jar\\lib\\mips\\librealm-jni.so

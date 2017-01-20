@@ -56,13 +56,13 @@ public class signUpUser extends AppCompatActivity {
         long[] tmplong = getLifeMax();
         d1.setMaxSec(tmplong[2]/1000);   //最大值 / 1000 縮小範圍
         d1.setBornSec(tmplong[3]/1000);  //出生年齡 / 1000 縮小範圍
-        NowMainActivity.realm.copyToRealmOrUpdate(d1);
-        NowMainActivity.realm.commitTransaction();
+        MyService.realm.copyToRealmOrUpdate(d1);
+        MyService.realm.commitTransaction();
 
         Log.d("MYLOG","maxlife: "+tmplong[1]+" passlife: "+tmplong[0]+" uneditmax: "+tmplong[2]);
 
         sp.edit().putInt("ID",++id).commit();
-        RealmQuery<userPerferences> query = NowMainActivity.realm.where(userPerferences.class);
+        RealmQuery<userPerferences> query = MyService.realm.where(userPerferences.class);
         RealmResults<userPerferences> result = query.findAll();
         for (userPerferences d : result) {
             MyService.item.add(d);

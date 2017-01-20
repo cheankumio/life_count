@@ -33,7 +33,7 @@ import lifetime.apper.klc.lifetime.Service.MyService;
 
 public class NowMainActivity extends AppCompatActivity {
     ProgressBar progressBar;
-    public static Realm realm;
+
     TextView remainsec,remainmin,remainhr,remainday,remainmon,str1;
     //Service過濾器
     IntentFilter filter;
@@ -42,9 +42,7 @@ public class NowMainActivity extends AppCompatActivity {
     SharedPreferences sp;
     long[] remainder;
 
-    @RealmModule(classes = {userPerferences.class})
-    public static class Module {
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,7 +162,7 @@ public class NowMainActivity extends AppCompatActivity {
 //            realm.copyToRealmOrUpdate(d1);
 //        }
 //        realm.commitTransaction();
-        RealmQuery<userPerferences> query = realm.where(userPerferences.class);
+        RealmQuery<userPerferences> query = MyService.realm.where(userPerferences.class);
         RealmResults<userPerferences> result = query.findAll();
         for (userPerferences d : result) {
             Log.d("MYLOG","ID: "+d.getId()+" ,Name: "+d.getName()+" ,Max: "+d.getMaxSec());

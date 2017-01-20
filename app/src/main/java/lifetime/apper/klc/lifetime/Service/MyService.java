@@ -39,6 +39,7 @@ public class MyService extends Service{
     public static long[] OUTPUT_REMAINDER_NUM;
     public static List<userPerferences> item;
     long[] maxnum;
+    public static Realm realm;
     String[] name;
     int counts;
     @RealmModule(classes = {userPerferences.class})
@@ -88,8 +89,9 @@ public class MyService extends Service{
         int n=0;
         long[] longtmp = new long[counts+1];
         for(long tmp:maxnum){
-            Log.d("MYLOG", "tmp - now : " + tmp+" - "+mCalendar.getTimeInMillis());
-            longtmp[n] = tmp - mCalendar.getTimeInMillis();
+            long tmp1 = mCalendar.getTimeInMillis()/1000;
+            Log.d("MYLOG", "tmp - now : " + tmp+" - "+tmp1);
+            longtmp[n] = tmp - tmp1;
             Log.d("MYLOG", "tmp - now : " + longtmp[n]);
             ++n;
         }
@@ -101,11 +103,11 @@ public class MyService extends Service{
         // Realm 基本屬性配置
         RealmConfiguration config = new RealmConfiguration.Builder(this)
                 .name("database_name.realm")
-                .setModules(new NowMainActivity.Module())
+                .setModules(new MyService.Module())
                 .deleteRealmIfMigrationNeeded()
                 .build();
         // 實例Realm，並設置其基本屬性config
-        Realm realm = Realm.getInstance(config);
+        realm = Realm.getInstance(config);
         // 啟動Realm 資料庫
         realm.beginTransaction();
 
@@ -115,6 +117,7 @@ public class MyService extends Service{
         for (userPerferences d : result) {
             item.add(d);
         }
+
         //insertdata();
     }
 

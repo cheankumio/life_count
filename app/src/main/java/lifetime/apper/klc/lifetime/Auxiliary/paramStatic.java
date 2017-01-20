@@ -7,6 +7,7 @@ import android.util.Log;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import lifetime.apper.klc.lifetime.NowMainActivity;
+import lifetime.apper.klc.lifetime.Service.MyService;
 
 /**
  * Created by c1103304 on 2017/1/12.
@@ -97,7 +98,7 @@ public class paramStatic {
     }
 
     public void requery(int id){
-        RealmQuery<userPerferences> query = NowMainActivity.realm.where(userPerferences.class);
+        RealmQuery<userPerferences> query = MyService.realm.where(userPerferences.class);
         query.equalTo("id",id);
         RealmResults<userPerferences> result = query.findAll();
         for (userPerferences d : result) {
