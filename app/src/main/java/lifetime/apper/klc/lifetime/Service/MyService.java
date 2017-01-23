@@ -16,6 +16,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -23,6 +24,7 @@ import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.annotations.RealmModule;
 import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
+import lifetime.apper.klc.lifetime.Auxiliary.staticParam;
 import lifetime.apper.klc.lifetime.Auxiliary.userPerferences;
 import lifetime.apper.klc.lifetime.NowMainActivity;
 import lifetime.apper.klc.lifetime.signUpUser;
@@ -36,12 +38,9 @@ import lifetime.apper.klc.lifetime.signUpUser;
 public class MyService extends Service{
     private Handler handler = new Handler();
     public static boolean nowState=false;
-    public static long[] OUTPUT_REMAINDER_NUM;
-    public static List<userPerferences> item;
-    long[] maxnum;
+    public static ArrayList<staticParam> tmp;
     public static Realm realm;
-    String[] name;
-    int counts;
+    public static int counts;
     @RealmModule(classes = {userPerferences.class})
     public static class Module {
     }
@@ -50,8 +49,7 @@ public class MyService extends Service{
         Log.d("MYLOG","Service ON");
         // 配置資料庫
         realmSetting();
-        // 取得資料 / 包含更新
-        renew();
+
 
         handler.postDelayed(showTime, 100);
         return super.onStartCommand(intent, flags, startId);
@@ -69,33 +67,22 @@ public class MyService extends Service{
             nowState=true;
 
             Bundle message = new Bundle();
-
-            long[] remaindernum = remainder();
-            message.putLongArray("Key", remaindernum);
+            message.putBoolean("Key", true);
             Intent intent = new Intent("remaindertime");
             intent.putExtras(message);
             sendBroadcast(intent);
-            OUTPUT_REMAINDER_NUM = remaindernum;
-            Log.d("MYLOG", "remainder : " + remaindernum[0]);
+            scular();
 //              Toast.makeText(getApplicationContext(), "更新資訊", Toast.LENGTH_LONG).show();
             handler.postDelayed(this, 1000);
         }
     };
 
-    // 計算餘數
-    @TargetApi(Build.VERSION_CODES.N)
-    private long[] remainder(){
-        Calendar mCalendar = Calendar.getInstance(Locale.getDefault());
-        int n=0;
-        long[] longtmp = new long[counts+1];
-        for(long tmp:maxnum){
-            long tmp1 = mCalendar.getTimeInMillis()/1000;
-            Log.d("MYLOG", "tmp - now : " + tmp+" - "+tmp1);
-            longtmp[n] = tmp - tmp1;
-            Log.d("MYLOG", "tmp - now : " + longtmp[n]);
-            ++n;
+    private void scular() {
+        for (int i=0;i<counts+1;i++) {
+            long max = tmp.get(i).getMax();
+            tmp.get(i).setNow(paramStatic.getNowTimeSec(max));
+            tmp.get(i).setPercent(paramStatic.long2int(max));
         }
-        return longtmp;
     }
 
 
@@ -111,25 +98,27 @@ public class MyService extends Service{
         // 啟動Realm 資料庫
         realm.beginTransaction();
 
-        RealmQuery<userPerferences> query = realm.where(userPerferences.class);
-        RealmResults<userPerferences> result = query.findAll();
-        item = new ArrayList<>();
-        for (userPerferences d : result) {
-            item.add(d);
-        }
+        // 取得資料 / 包含更新
+        renew();
 
-        //insertdata();
     }
 
 
     public void renew(){
-        counts = item.size();
-        maxnum = new long[counts+1];
-        name = new String[counts+1];
-        for(int i=0; i<counts;i++){
-            maxnum[i] = item.get(i).getMaxSec();
-            Log.d("MYLOG","Service ON"+maxnum[i]);
-            name[i] = item.get(i).getName();
+        RealmQuery<userPerferences> query = realm.where(userPerferences.class);
+        RealmResults<userPerferences> result = query.findAll();
+        tmp = new ArrayList<>();
+        for (int i=0;i<result.size()+1;i++) {
+            staticParam sp = new staticParam();
+            userPerferences ob= result.get(i);
+            long max = ob.getMaxSec();
+            sp.setName(ob.getName());
+            sp.setMax(max);
+            sp.setNow(paramStatic.getNowTimeSec(max));
+            sp.setPercent(paramStatic.long2int(max));
+            tmp.add(sp);
         }
+        counts = tmp.size();
+
     }
 }

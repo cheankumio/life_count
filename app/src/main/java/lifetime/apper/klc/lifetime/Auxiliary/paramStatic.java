@@ -1,8 +1,12 @@
 package lifetime.apper.klc.lifetime.Auxiliary;
 
+import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.icu.util.Calendar;
+import android.os.Build;
 import android.util.Log;
+
+import java.util.Locale;
 
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
@@ -75,7 +79,7 @@ public class paramStatic {
     public int year,month,day;
 
     public static long[] timescalur(long remaindersec){
-        long sec = remaindersec/1000;
+        long sec = remaindersec;
         long min = sec/60;
         long hr = min/60;
         long day = hr/24;
@@ -90,6 +94,20 @@ public class paramStatic {
         float a = now/1000000;
         float b = max/1000000;
         return scalur(a,b);
+    }
+    @TargetApi(Build.VERSION_CODES.N)
+    public static int long2int(long max){
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+        long now = calendar.getTimeInMillis()/1000;
+        float a = now/1000000;
+        float b = max/1000000;
+        return scalur(a,b);
+    }
+    @TargetApi(Build.VERSION_CODES.N)
+    public static long getNowTimeSec(long max){
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+        long now = (max - (calendar.getTimeInMillis()/1000));
+        return now;
     }
     private static int scalur(float a, float b){
         long tmp = (long)((a/b)*100);

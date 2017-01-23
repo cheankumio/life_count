@@ -23,6 +23,7 @@ import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.annotations.RealmModule;
 import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
+import lifetime.apper.klc.lifetime.Auxiliary.staticParam;
 import lifetime.apper.klc.lifetime.Auxiliary.userPerferences;
 import lifetime.apper.klc.lifetime.Service.MyService;
 
@@ -65,16 +66,13 @@ public class NowMainActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Bundle message = intent.getExtras();
-                remainder = message.getLongArray("Key");
-
+                boolean b = message.getBoolean("Key");
                 //元件顯示資訊更新
-                updateElement();
+                if(b){ updateElement();b=false;}
             }
         };
-
         filter = new IntentFilter("remaindertime");
         registerReceiver(receiver,filter);
-
         StartService();
     }
 
@@ -84,17 +82,7 @@ public class NowMainActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setClass(this,signUpUser.class);
             startActivity(intent);
-        }else{
-            for(userPerferences tmp : MyService.item){
-                Log.d("MYLOG","ID: "+tmp.getId()+" ,Name: "+tmp.getName()+" ,Max: "+tmp.getMaxSec()+" ,Born: "+tmp.getBornSec());
-            }
         }
-        progressBar.setMax(100);
-//        Log.d("MYLOG","life: "+life);
-
-//            Intent intent = new Intent();
-//            intent.setClass(this,signUpUser.class);
-//            startActivity(intent);
     }
 
     //覆寫onDestroy，在關閉APP後進行資料儲存
@@ -129,17 +117,17 @@ public class NowMainActivity extends AppCompatActivity {
 
     //更新使用者資訊
     public void updateElement(){
-        for(int i=0;i<MyService.item.size();i++) {
-            long newRemainder = remainder[i];
-            long maxnum = MyService.item.get(i).getMaxSec();
-            long[] n = paramStatic.timescalur(newRemainder);
-            progressBar.setProgress(paramStatic.long2int(newRemainder,maxnum));
-            remainsec.setText(n[0] + " 秒");
-            remainmin.setText(n[1] + " 分鐘");
-            remainhr.setText(n[2] + " 小時");
-            remainday.setText(n[3] + " 天");
-            remainmon.setText(n[4] + " 月");
-            Log.d("MYLOG", "剩餘: " + n[5] + " 年");
+        ArrayList<staticParam> ls = MyService.tmp;
+        for(int i=0;i<MyService.counts+1;i++) {
+            Log.d("Scular","NAME: "+ls.get(i).getName()+" remainder: "+ls.get(i).getNow());
+            //progressBar.setProgress(paramStatic.long2int(newRemainder,maxnum));
+
+//            remainsec.setText(n[0] + " 秒");
+//            remainmin.setText(n[1] + " 分鐘");
+//            remainhr.setText(n[2] + " 小時");
+//            remainday.setText(n[3] + " 天");
+//            remainmon.setText(n[4] + " 月");
+//            Log.d("MYLOG", "剩餘: " + n[5] + " 年");
         }
     }
 

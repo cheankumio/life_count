@@ -62,11 +62,7 @@ public class signUpUser extends AppCompatActivity {
         Log.d("MYLOG","maxlife: "+tmplong[1]+" passlife: "+tmplong[0]+" uneditmax: "+tmplong[2]);
 
         sp.edit().putInt("ID",++id).commit();
-        RealmQuery<userPerferences> query = MyService.realm.where(userPerferences.class);
-        RealmResults<userPerferences> result = query.findAll();
-        for (userPerferences d : result) {
-            MyService.item.add(d);
-        }
+
 
         finish();
     }
