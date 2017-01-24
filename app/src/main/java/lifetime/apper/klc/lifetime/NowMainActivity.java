@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ProgressBar;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,7 +36,10 @@ import lifetime.apper.klc.lifetime.Service.MyService;
 
 public class NowMainActivity extends AppCompatActivity {
     ProgressBar progressBar;
-
+    private GridView gridView;
+    List<Map<String, Object>> items;
+    Map<String, Object> item;
+    SimpleAdapter adapter;
     TextView remainsec,remainmin,remainhr,remainday,remainmon,str1;
     //Service過濾器
     IntentFilter filter;
@@ -101,6 +106,12 @@ public class NowMainActivity extends AppCompatActivity {
         remainday = (TextView)findViewById(R.id.remainderDay);
         remainmon = (TextView)findViewById(R.id.remainderMon);
         str1 = (TextView)findViewById(R.id.text1);
+        gridView = (GridView)findViewById(R.id.gridView);
+        gridView.setNumColumns(2);
+
+        items = new ArrayList<>();
+        adapter = new SimpleAdapter(this,items,R.layout.dynamic_layout
+                ,new String[]{"text"},new int[]{R.id.textView});
     }
 
     //判斷Service是否已經啟動過
