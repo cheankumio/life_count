@@ -118,8 +118,8 @@ public class NowMainActivity extends AppCompatActivity {
     //更新使用者資訊
     public void updateElement(){
         ArrayList<staticParam> ls = MyService.tmp;
-        for(int i=0;i<MyService.counts+1;i++) {
-            Log.d("Scular","NAME: "+ls.get(i).getName()+" remainder: "+ls.get(i).getNow());
+        for(int i=0;i<MyService.counts;i++) {
+                Log.d("Scular","NAME: "+ls.get(i).getName()+" remainder: "+ls.get(i).getNow()+" %: "+ls.get(i).getPercent());
             //progressBar.setProgress(paramStatic.long2int(newRemainder,maxnum));
 
 //            remainsec.setText(n[0] + " 秒");

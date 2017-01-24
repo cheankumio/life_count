@@ -41,9 +41,17 @@ public class MyService extends Service{
     public static ArrayList<staticParam> tmp;
     public static Realm realm;
     public static int counts;
+    RealmConfiguration config;
     @RealmModule(classes = {userPerferences.class})
     public static class Module {
     }
+
+    @Override
+    public void onDestroy() {
+        realm.close();
+        super.onDestroy();
+    }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("MYLOG","Service ON");
@@ -71,6 +79,7 @@ public class MyService extends Service{
             Intent intent = new Intent("remaindertime");
             intent.putExtras(message);
             sendBroadcast(intent);
+
             scular();
 //              Toast.makeText(getApplicationContext(), "更新資訊", Toast.LENGTH_LONG).show();
             handler.postDelayed(this, 1000);
@@ -78,7 +87,7 @@ public class MyService extends Service{
     };
 
     private void scular() {
-        for (int i=0;i<counts+1;i++) {
+        for (int i=0;i<counts;i++) {
             long max = tmp.get(i).getMax();
             tmp.get(i).setNow(paramStatic.getNowTimeSec(max));
             tmp.get(i).setPercent(paramStatic.long2int(max));
@@ -86,17 +95,15 @@ public class MyService extends Service{
     }
 
 
-    private void realmSetting(){
+    public void realmSetting(){
         // Realm 基本屬性配置
-        RealmConfiguration config = new RealmConfiguration.Builder(this)
+        config = new RealmConfiguration.Builder(this)
                 .name("database_name.realm")
                 .setModules(new MyService.Module())
                 .deleteRealmIfMigrationNeeded()
                 .build();
         // 實例Realm，並設置其基本屬性config
         realm = Realm.getInstance(config);
-        // 啟動Realm 資料庫
-        realm.beginTransaction();
 
         // 取得資料 / 包含更新
         renew();
@@ -104,21 +111,22 @@ public class MyService extends Service{
     }
 
 
-    public void renew(){
+    public static void renew(){
+        // 啟動Realm 資料庫
+        realm.beginTransaction();
         RealmQuery<userPerferences> query = realm.where(userPerferences.class);
         RealmResults<userPerferences> result = query.findAll();
         tmp = new ArrayList<>();
-        for (int i=0;i<result.size()+1;i++) {
+        //if(result.size()>0) {
+        for (int i = 0; i < result.size(); i++) {
             staticParam sp = new staticParam();
-            userPerferences ob= result.get(i);
-            long max = ob.getMaxSec();
-            sp.setName(ob.getName());
+            long max = result.get(i).getMaxSec();
+            sp.setName(result.get(i).getName());
             sp.setMax(max);
             sp.setNow(paramStatic.getNowTimeSec(max));
             sp.setPercent(paramStatic.long2int(max));
             tmp.add(sp);
         }
         counts = tmp.size();
-
     }
 }

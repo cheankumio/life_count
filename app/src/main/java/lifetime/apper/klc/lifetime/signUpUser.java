@@ -48,6 +48,11 @@ public class signUpUser extends AppCompatActivity {
         mwishAge = (EditText)findViewById(R.id.wishlife);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     //讀取使用者資訊，並存入SharePreferences
     public void savedata(View view){
         userPerferences d1 = new userPerferences();
@@ -58,7 +63,7 @@ public class signUpUser extends AppCompatActivity {
         d1.setBornSec(tmplong[3]/1000);  //出生年齡 / 1000 縮小範圍
         MyService.realm.copyToRealmOrUpdate(d1);
         MyService.realm.commitTransaction();
-
+        MyService.renew();
         Log.d("MYLOG","maxlife: "+tmplong[1]+" passlife: "+tmplong[0]+" uneditmax: "+tmplong[2]);
 
         sp.edit().putInt("ID",++id).commit();
