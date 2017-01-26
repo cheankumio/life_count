@@ -12,6 +12,10 @@
         "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\anim\\abc_slide_in_top.xml"
     },
     {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\anim\\anim.xml",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\anim\\anim.xml"
+    },
+    {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
         "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\anim\\abc_slide_out_top.xml"
     },
