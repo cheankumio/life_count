@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -45,13 +46,6 @@ public class NowMainActivity extends AppCompatActivity {
     TextView[] name,remnum1,remnum2;
     ProgressBar[] ps;
     Animation as;
-    ProgressBar ps1,ps2,ps3,ps4;
-    ProgressBar progressBar;
-    private GridView gridView;
-    List<Map<String, Object>> items;
-    Map<String, Object> item;
-    SimpleAdapter adapter;
-    TextView remainsec,remainmin,remainhr,remainday,remainmon,str1;
     //Service過濾器
     IntentFilter filter;
     //Service廣播接收
@@ -172,7 +166,6 @@ public class NowMainActivity extends AppCompatActivity {
     //更新使用者資訊
     public void updateElement(){
         ArrayList<staticParam> ls = MyService.tmp;
-        Log.d("MYLOG",usernum+"");
         for(int i=0;i<MyService.counts;i++) {
                 Log.d("Scular","NAME: "+ls.get(i).getName()+" remainder: "
                         +ls.get(i).getNow()+" %: "+ls.get(i).getPercent());
@@ -180,25 +173,40 @@ public class NowMainActivity extends AppCompatActivity {
             ps[i].setProgress(ls.get(i).getPercent());
             remnum1[i].setText(ls.get(i).getPercent()+" %");
             remnum2[i].setText("剩餘: "+(ls.get(i).getNow()/86400)+"天");
+        }
 
-            //progressBar.setProgress(paramStatic.long2int(newRemainder,maxnum));
+    }
 
-//            remainsec.setText(n[0] + " 秒");
-//            remainmin.setText(n[1] + " 分鐘");
-//            remainhr.setText(n[2] + " 小時");
-//            remainday.setText(n[3] + " 天");
-//            remainmon.setText(n[4] + " 月");
-//            Log.d("MYLOG", "剩餘: " + n[5] + " 年");
+    public void lnckick(View view){
+        ArrayList<staticParam> ls = MyService.tmp;
+        switch (view.getId()){
+            case R.id.ly1:
+                Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ly2:
+                Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ly3:
+                Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ly4:
+                Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
     public void settingBtn(View view){
+        view.setVisibility(View.INVISIBLE);
         usernum = sp.getInt("ID",0);
-        Intent intent = new Intent();
-        intent.setClass(this,signUpUser.class);
-        startActivity(intent);
-        ly[usernum].setVisibility(View.VISIBLE);
-
+        if(usernum<4) {
+            Intent intent = new Intent();
+            intent.setClass(this, signUpUser.class);
+            startActivity(intent);
+            ly[usernum].setVisibility(View.VISIBLE);
+        }else{
+            Toast.makeText(this, "請購買付費完整版，可增加卡片數量上限。", Toast.LENGTH_SHORT).show();
+        }
+        view.setVisibility(View.VISIBLE);
     }
 
 

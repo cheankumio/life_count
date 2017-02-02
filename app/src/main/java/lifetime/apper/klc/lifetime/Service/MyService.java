@@ -90,7 +90,7 @@ public class MyService extends Service{
         for (int i=0;i<counts;i++) {
             long max = tmp.get(i).getMax();
             tmp.get(i).setNow(paramStatic.getNowTimeSec(max));
-            tmp.get(i).setPercent(paramStatic.long2int(max));
+            tmp.get(i).getPercent();
         }
     }
 
@@ -124,7 +124,7 @@ public class MyService extends Service{
             sp.setName(result.get(i).getName());
             sp.setMax(max);
             sp.setNow(paramStatic.getNowTimeSec(max));
-            sp.setPercent(paramStatic.long2int(max));
+            sp.setPercent(paramStatic.long2int(result.get(i).getBornSec(),max));
             tmp.add(sp);
         }
         counts = tmp.size();

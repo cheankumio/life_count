@@ -90,17 +90,13 @@ public class paramStatic {
     }
 
     //計算時間:  (現在時間 / 最大時間)*100 -> 轉換為百分比數值
-    public static int long2int(long now, long max){
-        float a = now/1000000;
-        float b = max/1000000;
-        return scalur(a,b);
-    }
     @TargetApi(Build.VERSION_CODES.N)
-    public static int long2int(long max){
+    public static int long2int(long born, long max){
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         long now = calendar.getTimeInMillis()/1000;
-        float a = now/1000000;
-        float b = max/1000000;
+        float a = (now-born)/10000;
+        float b = (max-born)/10000;
+        Log.d("MYLOS","a: "+a+"\nb: "+b+"\na/b: "+a/b);
         return scalur(a,b);
     }
     @TargetApi(Build.VERSION_CODES.N)
@@ -115,12 +111,12 @@ public class paramStatic {
         return s;
     }
 
-    public void requery(int id){
-        RealmQuery<userPerferences> query = MyService.realm.where(userPerferences.class);
-        query.equalTo("id",id);
-        RealmResults<userPerferences> result = query.findAll();
-        for (userPerferences d : result) {
-            Log.d("MYLOG","ID: "+d.getId()+" ,Name: "+d.getName()+" ,Max: "+d.getMaxSec()+" ,Born: "+d.getBornSec());
-        }
-    }
+//    public void requery(int id){
+//        RealmQuery<userPerferences> query = MyService.realm.where(userPerferences.class);
+//        query.equalTo("id",id);
+//        RealmResults<userPerferences> result = query.findAll();
+//        for (userPerferences d : result) {
+//            Log.d("MYLOG","ID: "+d.getId()+" ,Name: "+d.getName()+" ,Max: "+d.getMaxSec()+" ,Born: "+d.getBornSec());
+//        }
+//    }
 }
