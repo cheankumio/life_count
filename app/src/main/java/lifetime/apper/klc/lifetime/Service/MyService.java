@@ -112,8 +112,7 @@ public class MyService extends Service{
 
 
     public static void renew(){
-        // 啟動Realm 資料庫
-        realm.beginTransaction();
+
         RealmQuery<userPerferences> query = realm.where(userPerferences.class);
         RealmResults<userPerferences> result = query.findAll();
         tmp = new ArrayList<>();
@@ -128,5 +127,13 @@ public class MyService extends Service{
             tmp.add(sp);
         }
         counts = tmp.size();
+    }
+    public static void delete(int key) {
+        realm.beginTransaction();
+        RealmQuery<userPerferences> query = realm.where(userPerferences.class);
+        RealmResults<userPerferences> result = query.findAll();
+        result.remove(key);
+        realm.commitTransaction();
+        renew();
     }
 }

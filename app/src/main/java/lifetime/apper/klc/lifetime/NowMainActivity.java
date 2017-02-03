@@ -43,7 +43,7 @@ import lifetime.apper.klc.lifetime.Service.MyService;
 
 public class NowMainActivity extends AppCompatActivity {
     LinearLayout[] ly;
-    TextView[] name,remnum1,remnum2;
+    TextView[] name,remnum1,remnum2,remnum3;
     ProgressBar[] ps;
     Animation as;
     //Service過濾器
@@ -117,11 +117,13 @@ public class NowMainActivity extends AppCompatActivity {
         int[] nameid={R.id.name1,R.id.name2,R.id.name3,R.id.name4};
         int[] remid1={R.id.remainder11,R.id.remainder21,R.id.remainder31,R.id.remainder41};
         int[] remid2={R.id.remainder12,R.id.remainder22,R.id.remainder32,R.id.remainder42};
+        int[] remid3={R.id.hr1,R.id.hr2,R.id.hr3,R.id.hr4};
         int[] psid={R.id.pb1,R.id.pb2,R.id.pb3,R.id.pb4};
         ly = new LinearLayout[4];
         name = new TextView[4];
         remnum1 = new TextView[4];
         remnum2 = new TextView[4];
+        remnum3 = new TextView[4];
         ps = new ProgressBar[4];
         for(int i=0;i<4;i++){
             ly[i] = (LinearLayout)findViewById(lyid[i]);
@@ -129,26 +131,9 @@ public class NowMainActivity extends AppCompatActivity {
             name[i] = (TextView)findViewById(nameid[i]);
             remnum1[i] = (TextView)findViewById(remid1[i]);
             remnum2[i] = (TextView)findViewById(remid2[i]);
+            remnum3[i] = (TextView)findViewById(remid3[i]);
             ps[i] = (ProgressBar)findViewById(psid[i]);
         }
-
-//        progressBar = (ProgressBar)findViewById(R.id.progressBar2);
-//        remainsec = (TextView)findViewById(R.id.remainderSec);
-//        remainmin = (TextView)findViewById(R.id.remainderMin);
-//        remainhr = (TextView)findViewById(R.id.remainderHr);
-//        remainday = (TextView)findViewById(R.id.remainderDay);
-//        remainmon = (TextView)findViewById(R.id.remainderMon);
-//        str1 = (TextView)findViewById(R.id.text1);
-//        gridView = (GridView)findViewById(R.id.gridView);
-//        gridView.setNumColumns(2);
-//
-//        items = new ArrayList<>();
-//        item = new HashMap<>();
-//        item.put("text", "Num: ");
-//        items.add(item);
-//        adapter = new SimpleAdapter(this,items,R.layout.dynamic_layout
-//                ,new String[]{"text"},new int[]{R.id.textView});
-//        gridView.setAdapter(adapter);
     }
 
     //判斷Service是否已經啟動過
@@ -167,14 +152,15 @@ public class NowMainActivity extends AppCompatActivity {
     public void updateElement(){
         ArrayList<staticParam> ls = MyService.tmp;
         for(int i=0;i<MyService.counts;i++) {
+            long remainds = ls.get(i).getNow();
                 Log.d("Scular","NAME: "+ls.get(i).getName()+" remainder: "
-                        +ls.get(i).getNow()+" %: "+ls.get(i).getPercent());
+                        +remainds+" %: "+ls.get(i).getPercent());
             name[i].setText(ls.get(i).getName());
             ps[i].setProgress(ls.get(i).getPercent());
-            remnum1[i].setText(ls.get(i).getPercent()+" %");
-            remnum2[i].setText("剩餘: "+(ls.get(i).getNow()/86400)+"天");
+            remnum1[i].setText("人生悄悄的過了.. "+ls.get(i).getPercent()+" %");
+            remnum2[i].setText("剩餘時間: "+(remainds/86400)+" 天");
+            remnum3[i].setText(remainds/3600+" 小時\n"+remainds/60+" 分鐘");
         }
-
     }
 
     public void lnckick(View view){
@@ -182,21 +168,26 @@ public class NowMainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.ly1:
                 Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+                MyService.delete(0);
                 break;
             case R.id.ly2:
                 Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+                MyService.delete(1);
                 break;
             case R.id.ly3:
                 Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+                MyService.delete(2);
                 break;
             case R.id.ly4:
                 Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+                MyService.delete(3);
                 break;
         }
+        ly[MyService.counts].setVisibility(View.INVISIBLE);
+        sp.edit().putInt("ID",MyService.counts).commit();
     }
 
     public void settingBtn(View view){
-        view.setVisibility(View.INVISIBLE);
         usernum = sp.getInt("ID",0);
         if(usernum<4) {
             Intent intent = new Intent();
@@ -206,7 +197,6 @@ public class NowMainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "請購買付費完整版，可增加卡片數量上限。", Toast.LENGTH_SHORT).show();
         }
-        view.setVisibility(View.VISIBLE);
     }
 
 

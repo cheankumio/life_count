@@ -34,13 +34,14 @@ public class signUpUser extends AppCompatActivity {
     EditText muserName,mwishAge;
     private DatePickerDialog datePickerDialog;
     SharedPreferences sp;
-    int id;
+    int id,count;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_layout);
         sp = getSharedPreferences("DATA",0);
         id = sp.getInt("ID",0);
+        count = sp.getInt("Count",0);
         setElemtent();
     }
 
@@ -58,8 +59,10 @@ public class signUpUser extends AppCompatActivity {
 
     //讀取使用者資訊，並存入SharePreferences
     public void savedata(View view){
+        // 啟動Realm 資料庫
+        MyService.realm.beginTransaction();
         userPerferences d1 = new userPerferences();
-        d1.setId(id);
+        d1.setId(count);
         d1.setName(muserName.getText().toString());
         long[] tmplong = getLifeMax();
         d1.setMaxSec(tmplong[2]/1000);   //最大值 / 1000 縮小範圍
@@ -69,7 +72,7 @@ public class signUpUser extends AppCompatActivity {
         MyService.renew();
         Log.d("MYLOG","maxlife: "+tmplong[1]+" passlife: "+tmplong[0]+" uneditmax: "+tmplong[2]);
 
-        sp.edit().putInt("ID",++id).commit();
+        sp.edit().putInt("ID",++id).putInt("Count",++count).commit();
 
 
         finish();
