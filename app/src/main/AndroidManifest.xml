@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".signUpUser" />
+        <activity android:name="EditUserInfo"
+            android:theme="@style/MyActivityStyle" />
         <service android:name=".Service.MyService"/>
 
         <service android:name=".Service.appWidget_Service" />

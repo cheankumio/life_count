@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name="lifetime.apper.klc.lifetime.signUpUser" />
+        <activity
+            android:name="lifetime.apper.klc.lifetime.EditUserInfo"
+            android:theme="@style/MyActivityStyle" />
 
         <service android:name="lifetime.apper.klc.lifetime.Service.MyService" />
         <service android:name="lifetime.apper.klc.lifetime.Service.appWidget_Service" />

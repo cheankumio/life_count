@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\bigu.png",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\bigu.png"
+    },
+    {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\example_appwidget_preview.png",
         "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\example_appwidget_preview.png"
     }

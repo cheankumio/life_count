@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -168,25 +172,30 @@ public class NowMainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.ly1:
                 Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
-                MyService.delete(0);
+                //MyService.delete(0);
                 break;
             case R.id.ly2:
                 Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
-                MyService.delete(1);
+                //MyService.delete(1);
                 break;
             case R.id.ly3:
                 Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
-                MyService.delete(2);
+                //MyService.delete(2);
                 break;
             case R.id.ly4:
                 Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
-                MyService.delete(3);
+                //MyService.delete(3);
                 break;
         }
-        ly[MyService.counts].setVisibility(View.INVISIBLE);
-        sp.edit().putInt("ID",MyService.counts).commit();
+        Intent in = new Intent();
+        in.setClass(this,EditUserInfo.class);
+        startActivity(in);
+
+        //ly[MyService.counts].setVisibility(View.INVISIBLE);
+        //sp.edit().putInt("ID",MyService.counts).commit();
     }
 
+    // 增加使用者按鈕
     public void settingBtn(View view){
         usernum = sp.getInt("ID",0);
         if(usernum<4) {
