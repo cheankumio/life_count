@@ -2,7 +2,7 @@ package lifetime.apper.klc.lifetime.Auxiliary;
 
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
-import android.icu.util.Calendar;
+import java.util.Calendar;
 import android.os.Build;
 import android.util.Log;
 

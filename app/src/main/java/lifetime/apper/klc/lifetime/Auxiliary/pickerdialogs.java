@@ -1,12 +1,15 @@
 package lifetime.apper.klc.lifetime.Auxiliary;
 
+import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.icu.util.Calendar;
+import java.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+
+import java.util.GregorianCalendar;
 
 import lifetime.apper.klc.lifetime.Auxiliary.DateSetting;
 
@@ -15,15 +18,15 @@ import lifetime.apper.klc.lifetime.Auxiliary.DateSetting;
  */
 
 public class pickerdialogs extends DialogFragment{
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         DateSetting dateSetting = new DateSetting(getActivity());
 
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        GregorianCalendar calendar = new GregorianCalendar();
+        int year = 1991;
+        int month = 6;
+        int day = 30;
         DatePickerDialog dialog;
         dialog = new DatePickerDialog(getActivity(), dateSetting, year, month, day);
 

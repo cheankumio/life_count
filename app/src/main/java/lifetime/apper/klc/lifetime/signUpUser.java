@@ -1,14 +1,16 @@
 package lifetime.apper.klc.lifetime;
 
 import android.annotation.TargetApi;
+import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
-import android.icu.util.Calendar;
+import java.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,6 +32,7 @@ import lifetime.apper.klc.lifetime.Service.MyService;
 public class signUpUser extends AppCompatActivity {
     TextView mbornDate;
     EditText muserName,mwishAge;
+    private DatePickerDialog datePickerDialog;
     SharedPreferences sp;
     int id;
     @Override
@@ -74,6 +77,13 @@ public class signUpUser extends AppCompatActivity {
 
     //跳出選擇日期視窗
     public void chooseDate(View view){
+//        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//
+//            }
+//        });
+
         pickerdialogs mpickdialogs = new pickerdialogs();
         mpickdialogs.show(getFragmentManager(),"date_picker");
     }
