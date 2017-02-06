@@ -1807,6 +1807,7 @@ containing a value of this type.
         public static final int bottom=0x7f0c0022;
         public static final int button=0x7f0c0088;
         public static final int button2=0x7f0c0083;
+        public static final int button3=0x7f0c0057;
         public static final int button4=0x7f0c0081;
         public static final int button5=0x7f0c0059;
         public static final int button6=0x7f0c0058;
@@ -1909,7 +1910,6 @@ containing a value of this type.
         public static final int textView2=0x7f0c0084;
         public static final int textView3=0x7f0c0086;
         public static final int textView4=0x7f0c0089;
-        public static final int textView5=0x7f0c0057;
         public static final int time=0x7f0c0061;
         public static final int title=0x7f0c002d;
         public static final int title_template=0x7f0c0032;

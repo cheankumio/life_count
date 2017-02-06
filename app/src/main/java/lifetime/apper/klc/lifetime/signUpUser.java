@@ -64,7 +64,7 @@ public class signUpUser extends AppCompatActivity {
         userPerferences d1 = new userPerferences();
         d1.setId(count);
         d1.setName(muserName.getText().toString());
-        long[] tmplong = getLifeMax();
+        long[] tmplong = getLifeMax(Integer.parseInt(mwishAge.getText().toString()));
         d1.setMaxSec(tmplong[2]/1000);   //最大值 / 1000 縮小範圍
         d1.setBornSec(tmplong[3]/1000);  //出生年齡 / 1000 縮小範圍
         MyService.realm.copyToRealmOrUpdate(d1);
@@ -94,12 +94,12 @@ public class signUpUser extends AppCompatActivity {
 
     //計算生命最大值
     @TargetApi(Build.VERSION_CODES.N)
-    public long[] getLifeMax(){
+    public static long[] getLifeMax(int _age){
 
         int year = staticParam.year;
         int month = staticParam.month;
         int day = staticParam.day;
-        int age = Integer.parseInt(mwishAge.getText().toString());
+        int age = _age;
 
         Calendar mcalendarMAX = Calendar.getInstance(Locale.getDefault());
         //取得目前時間秒數
@@ -119,7 +119,28 @@ public class signUpUser extends AppCompatActivity {
         Log.d("MYLOG",lifepass+", "+lifemax+" ,"+MaxLife+" ,"+BornLife);
         return returnlong;
     }
+    public static long[] getLifeMax(int _age,long borntime){
+        int age = _age;
 
+        Calendar mcalendarMAX = Calendar.getInstance(Locale.getDefault());
+        //取得目前時間秒數
+        long NowLife = mcalendarMAX.getTimeInMillis();
+
+        //取得出生日期秒數
+        mcalendarMAX.setTimeInMillis(borntime);
+        long BornLife = mcalendarMAX.getTimeInMillis();
+
+        long yearmilli = 31536000000l;
+        //取得最大壽命秒數
+        mcalendarMAX.setTimeInMillis(borntime+(_age*yearmilli));
+        long MaxLife = mcalendarMAX.getTimeInMillis();
+        long lifemax = MaxLife - BornLife;   // 最大年齡 - 出生年齡 = 總壽命長度
+        long lifepass = NowLife - BornLife;  // 現在年齡 - 出生年齡 = 已過秒數
+
+        long[] returnlong ={lifepass,lifemax,MaxLife,BornLife};
+        Log.d("MYLOG",lifepass+", "+lifemax+" ,"+MaxLife+" ,"+BornLife);
+        return returnlong;
+    }
 
 
 }

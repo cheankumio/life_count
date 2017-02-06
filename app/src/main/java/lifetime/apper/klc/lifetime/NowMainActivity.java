@@ -169,26 +169,28 @@ public class NowMainActivity extends AppCompatActivity {
 
     public void lnckick(View view){
         ArrayList<staticParam> ls = MyService.tmp;
+        int i = 0;
         switch (view.getId()){
             case R.id.ly1:
-                Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+                i=0;
                 //MyService.delete(0);
                 break;
             case R.id.ly2:
-                Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+                i=1;
                 //MyService.delete(1);
                 break;
             case R.id.ly3:
-                Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+                i=2;
                 //MyService.delete(2);
                 break;
             case R.id.ly4:
-                Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+                i=3;
                 //MyService.delete(3);
                 break;
         }
         Intent in = new Intent();
         in.setClass(this,EditUserInfo.class);
+        in.putExtra("block",i);
         startActivity(in);
 
         //ly[MyService.counts].setVisibility(View.INVISIBLE);

@@ -6,6 +6,8 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.widget.DatePicker;
 
+import lifetime.apper.klc.lifetime.EditUserInfo;
+
 /**
  * Created by klc on 2017/1/7.
  */
@@ -21,5 +23,7 @@ public class DateSetting implements DatePickerDialog.OnDateSetListener{
         staticParam.year = year;
         staticParam.month = month;
         staticParam.day = dayOfMonth;
+        if(EditUserInfo.born!=null)
+        EditUserInfo.born.setText("生日: "+ year+"/"+(month+1)+"/"+dayOfMonth);
     }
 }

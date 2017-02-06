@@ -514,6 +514,7 @@ int id bornDate 0x7f0c0087
 int id bottom 0x7f0c0022
 int id button 0x7f0c0088
 int id button2 0x7f0c0083
+int id button3 0x7f0c0057
 int id button4 0x7f0c0081
 int id button5 0x7f0c0059
 int id button6 0x7f0c0058
@@ -616,7 +617,6 @@ int id textView 0x7f0c0054
 int id textView2 0x7f0c0084
 int id textView3 0x7f0c0086
 int id textView4 0x7f0c0089
-int id textView5 0x7f0c0057
 int id time 0x7f0c0061
 int id title 0x7f0c002d
 int id title_template 0x7f0c0032

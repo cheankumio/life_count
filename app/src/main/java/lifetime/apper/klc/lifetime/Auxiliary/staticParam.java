@@ -8,6 +8,18 @@ public class staticParam {
     public static int year,month,day;
     private long max;
     private long now;
+    private long born;
+    private int percent;
+    private String name;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public long getBorn() {
         return born;
@@ -17,9 +29,7 @@ public class staticParam {
         this.born = born;
     }
 
-    private long born;
-    private int percent;
-    private String name;
+
 
     public long getNow() {
         return now;

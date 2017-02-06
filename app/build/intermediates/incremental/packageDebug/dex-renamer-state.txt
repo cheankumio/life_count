@@ -1,4 +1,7 @@
-#Fri Feb 03 17:33:39 CST 2017
-base.0=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+#Mon Feb 06 10:57:35 CST 2017
+base.0=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ebf45a9fe2a40bc8cf9af3a75a2f694d12d73277
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2426eeee5aecb620156b9825614fb06298daab56\\classes.dex
+base.1=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2426eeee5aecb620156b9825614fb06298daab56
+file.0=D\:\\androidSample\\lifetime\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ebf45a9fe2a40bc8cf9af3a75a2f694d12d73277\\classes.dex

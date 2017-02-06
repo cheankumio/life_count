@@ -122,6 +122,8 @@ public class MyService extends Service{
             long max = result.get(i).getMaxSec();
             sp.setName(result.get(i).getName());
             sp.setMax(max);
+            sp.setId(result.get(i).getId());
+            sp.setBorn(result.get(i).getBornSec());
             sp.setNow(paramStatic.getNowTimeSec(max));
             sp.setPercent(paramStatic.long2int(result.get(i).getBornSec(),max));
             tmp.add(sp);
