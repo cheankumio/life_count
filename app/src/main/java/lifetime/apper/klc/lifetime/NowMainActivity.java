@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -21,6 +23,9 @@ import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 
 import org.w3c.dom.Text;
 
@@ -35,7 +40,6 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.annotations.RealmModule;
-import lifetime.apper.klc.lifetime.Auxiliary.paramStatic;
 import lifetime.apper.klc.lifetime.Auxiliary.staticParam;
 import lifetime.apper.klc.lifetime.Auxiliary.userPerferences;
 import lifetime.apper.klc.lifetime.Service.MyService;
@@ -48,7 +52,7 @@ import lifetime.apper.klc.lifetime.Service.MyService;
 public class NowMainActivity extends AppCompatActivity {
     LinearLayout[] ly;
     TextView[] name,remnum1,remnum2,remnum3;
-    ProgressBar[] ps;
+    IconRoundCornerProgressBar[] ps;
     Animation as;
     //Service過濾器
     IntentFilter filter;
@@ -117,18 +121,19 @@ public class NowMainActivity extends AppCompatActivity {
 
     //註冊元件
     public void getLayoutElement(){
+
         int[] lyid={R.id.ly1,R.id.ly2,R.id.ly3,R.id.ly4};
         int[] nameid={R.id.name1,R.id.name2,R.id.name3,R.id.name4};
         int[] remid1={R.id.remainder11,R.id.remainder21,R.id.remainder31,R.id.remainder41};
         int[] remid2={R.id.remainder12,R.id.remainder22,R.id.remainder32,R.id.remainder42};
         int[] remid3={R.id.hr1,R.id.hr2,R.id.hr3,R.id.hr4};
-        int[] psid={R.id.pb1,R.id.pb2,R.id.pb3,R.id.pb4};
+        int[] psid={R.id.pbs1,R.id.pbs2,R.id.pbs3,R.id.pbs4};
         ly = new LinearLayout[4];
         name = new TextView[4];
         remnum1 = new TextView[4];
         remnum2 = new TextView[4];
         remnum3 = new TextView[4];
-        ps = new ProgressBar[4];
+        ps = new IconRoundCornerProgressBar[4];
         for(int i=0;i<4;i++){
             ly[i] = (LinearLayout)findViewById(lyid[i]);
             ly[i].setVisibility(View.INVISIBLE);
@@ -136,7 +141,7 @@ public class NowMainActivity extends AppCompatActivity {
             remnum1[i] = (TextView)findViewById(remid1[i]);
             remnum2[i] = (TextView)findViewById(remid2[i]);
             remnum3[i] = (TextView)findViewById(remid3[i]);
-            ps[i] = (ProgressBar)findViewById(psid[i]);
+            ps[i] = (IconRoundCornerProgressBar)findViewById(psid[i]);
         }
     }
 
@@ -160,7 +165,7 @@ public class NowMainActivity extends AppCompatActivity {
                 Log.d("Scular","NAME: "+ls.get(i).getName()+" remainder: "
                         +remainds+" %: "+ls.get(i).getPercent());
             name[i].setText(ls.get(i).getName());
-            ps[i].setProgress(ls.get(i).getPercent());
+            ps[i].setProgress(ps[i].getMax()-ls.get(i).getPercent());
             remnum1[i].setText("人生悄悄的過了.. "+ls.get(i).getPercent()+" %");
             remnum2[i].setText("剩餘時間: "+(remainds/86400)+" 天");
             remnum3[i].setText(remainds/3600+" 小時\n"+remainds/60+" 分鐘");
@@ -197,19 +202,6 @@ public class NowMainActivity extends AppCompatActivity {
         //sp.edit().putInt("ID",MyService.counts).commit();
     }
 
-    // 增加使用者按鈕
-    public void settingBtn(View view){
-        usernum = sp.getInt("ID",0);
-        if(usernum<4) {
-            Intent intent = new Intent();
-            intent.setClass(this, signUpUser.class);
-            startActivity(intent);
-            ly[usernum].setVisibility(View.VISIBLE);
-        }else{
-            Toast.makeText(this, "請購買付費完整版，可增加卡片數量上限。", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
 
 
@@ -229,5 +221,30 @@ public class NowMainActivity extends AppCompatActivity {
             Log.d("MYLOG","ID: "+d.getId()+" ,Name: "+d.getName()+" ,Max: "+d.getMaxSec());
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_2, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.addition:
+                usernum = sp.getInt("ID",0);
+                if(usernum<4) {
+                    Intent intent = new Intent();
+                    intent.setClass(this, signUpUser.class);
+                    startActivity(intent);
+                    ly[usernum].setVisibility(View.VISIBLE);
+                }else{
+                    Toast.makeText(this, "請購買付費完整版，可增加卡片數量上限。", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

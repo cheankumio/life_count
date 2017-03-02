@@ -1,10 +1,6 @@
 [
     {
-        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\menu\\zxing_capture.xml",
-        "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.0.1\\res\\menu\\zxing_capture.xml"
-    },
-    {
-        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\menu\\zxing_encode.xml",
-        "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.0.1\\res\\menu\\zxing_encode.xml"
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_2.xml",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\menu\\menu_2.xml"
     }
 ]

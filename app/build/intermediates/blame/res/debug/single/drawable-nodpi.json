@@ -4,6 +4,18 @@
         "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\bigu.png"
     },
     {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\life1.png",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\life1.png"
+    },
+    {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\life2.png",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\life2.png"
+    },
+    {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\add2.png",
+        "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\add2.png"
+    },
+    {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\example_appwidget_preview.png",
         "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\drawable-nodpi\\example_appwidget_preview.png"
     }

@@ -2,5 +2,9 @@
     {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
         "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\round_corner_progress_icon.png",
+        "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.akexorcist\\RoundCornerProgressBar\\2.0.3\\res\\mipmap-hdpi\\round_corner_progress_icon.png"
     }
 ]

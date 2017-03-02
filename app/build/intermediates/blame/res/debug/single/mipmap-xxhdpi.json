@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\round_corner_progress_icon.png",
+        "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.akexorcist\\RoundCornerProgressBar\\2.0.3\\res\\mipmap-xxhdpi\\round_corner_progress_icon.png"
+    },
+    {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
         "source": "D:\\androidSample\\lifetime\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     }

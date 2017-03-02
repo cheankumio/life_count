@@ -1,310 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fcdaf2">
+        android:background="#708090">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="DisableBaselineAlignment">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#5599CC"
-                android:layout_weight="1"
-                android:id="@+id/ly1"
-                android:onClick="lnckick"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="5dp">
+                tools:ignore="DisableBaselineAlignment">
 
-                <TextView
-                    android:text="TextView"
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/name1"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="normal|bold"
-                    tools:ignore="DuplicateIds" />
-
-                <ProgressBar
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:id="@+id/pb1"
-                    android:foregroundGravity="center_horizontal"
-                    android:max="100"
-                    android:progress="50"
-                    android:rotation="180"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder11"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder12"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/hr1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                    android:background="#5599CC"
                     android:layout_weight="1"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:id="@+id/ly1"
+                    android:onClick="lnckick"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name1"
+                        android:gravity="center_horizontal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="normal|bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:layout_width="match_parent"
+                        android:id="@+id/pbs1"
+                        android:layout_height="wrap_content"
+                        app:rcSecondaryProgress="100"
+                        app:rcMax="100"
+                        app:rcRadius="10dp"
+                        app:rcBackgroundPadding="2dp"
+                        app:rcProgressColor="#CD0000"
+                        app:rcSecondaryProgressColor="#6c161d"
+                        app:rcBackgroundColor="#334448"
+                        app:rcIconSrc="@drawable/life2"
+                        app:rcIconSize="30dp"
+                        app:rcIconBackgroundColor="#676867"
+                        app:rcIconPadding="2dp"
+                        app:rcReverse="true"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp" />
+
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder11"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder12"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hr1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FF8C00"
+                    android:layout_weight="1"
+                    android:id="@+id/ly2"
+                    android:onClick="lnckick"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name2"
+                        android:gravity="center_horizontal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="normal|bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:layout_width="match_parent"
+                        android:id="@+id/pbs2"
+                        android:layout_height="wrap_content"
+                        app:rcSecondaryProgress="100"
+                        app:rcMax="100"
+                        app:rcRadius="10dp"
+                        app:rcBackgroundPadding="2dp"
+                        app:rcProgressColor="#CD0000"
+                        app:rcSecondaryProgressColor="#6c161d"
+                        app:rcBackgroundColor="#334448"
+                        app:rcIconSrc="@drawable/life2"
+                        app:rcIconSize="30dp"
+                        app:rcIconBackgroundColor="#676867"
+                        app:rcIconPadding="2dp"
+                        app:rcReverse="true"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder21"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        tools:ignore="DuplicateIds"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder22"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        tools:ignore="DuplicateIds"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hr2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        tools:ignore="DuplicateIds"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#6B8E23"
+                    android:layout_weight="1"
+                    android:id="@+id/ly3"
+                    android:onClick="lnckick"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name3"
+                        android:gravity="center_horizontal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="normal|bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:layout_width="match_parent"
+                        android:id="@+id/pbs3"
+                        android:layout_height="wrap_content"
+                        app:rcSecondaryProgress="100"
+                        app:rcMax="100"
+                        app:rcRadius="10dp"
+                        app:rcBackgroundPadding="2dp"
+                        app:rcProgressColor="#CD0000"
+                        app:rcSecondaryProgressColor="#6c161d"
+                        app:rcBackgroundColor="#334448"
+                        app:rcIconSrc="@drawable/life2"
+                        app:rcIconSize="30dp"
+                        app:rcIconBackgroundColor="#676867"
+                        app:rcIconPadding="2dp"
+                        app:rcReverse="true"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder31"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder32"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hr3"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#CDAF95"
+                    android:layout_weight="1"
+                    android:id="@+id/ly4"
+                    android:onClick="lnckick"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="5dp">
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name4"
+                        android:gravity="center_horizontal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="normal|bold"
+                        tools:ignore="DuplicateIds" />
+
+
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:layout_width="match_parent"
+                        android:id="@+id/pbs4"
+                        android:layout_height="wrap_content"
+                        app:rcSecondaryProgress="100"
+                        app:rcMax="100"
+                        app:rcRadius="10dp"
+                        app:rcBackgroundPadding="2dp"
+                        app:rcProgressColor="#CD0000"
+                        app:rcSecondaryProgressColor="#6c161d"
+                        app:rcBackgroundColor="#334448"
+                        app:rcIconSrc="@drawable/life2"
+                        app:rcIconSize="30dp"
+                        app:rcIconBackgroundColor="#676867"
+                        app:rcIconPadding="2dp"
+                        app:rcReverse="true"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder41"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        tools:ignore="DuplicateIds"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/remainder42"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        tools:ignore="DuplicateIds"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hr4"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        tools:ignore="DuplicateIds"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
+        </ScrollView>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#5599CC"
-                android:layout_weight="1"
-                android:id="@+id/ly2"
-                android:onClick="lnckick"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="5dp">
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/name2"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="normal|bold"
-                    tools:ignore="DuplicateIds" />
-
-                <ProgressBar
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:id="@+id/pb2"
-                    android:foregroundGravity="center_horizontal"
-                    android:max="100"
-                    android:progress="50"
-                    android:rotation="180"
-                    android:layout_height="wrap_content"
-                    tools:ignore="DuplicateIds" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder21"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    tools:ignore="DuplicateIds"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder22"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    tools:ignore="DuplicateIds"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/hr2"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    tools:ignore="DuplicateIds"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="DisableBaselineAlignment">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#5599CC"
-                android:layout_weight="1"
-                android:id="@+id/ly3"
-                android:onClick="lnckick"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="5dp">
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/name3"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="normal|bold"
-                    tools:ignore="DuplicateIds" />
-
-                <ProgressBar
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:id="@+id/pb3"
-                    android:foregroundGravity="center_horizontal"
-                    android:max="100"
-                    android:progress="50"
-                    android:rotation="180"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder31"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder32"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/hr3"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#5599CC"
-                android:layout_weight="1"
-                android:id="@+id/ly4"
-                android:onClick="lnckick"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="5dp">
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/name4"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="normal|bold"
-                    tools:ignore="DuplicateIds" />
-
-                <ProgressBar
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:id="@+id/pb4"
-                    android:foregroundGravity="center_horizontal"
-                    android:max="100"
-                    android:progress="50"
-                    android:rotation="180"
-                    android:layout_height="wrap_content"
-                    tools:ignore="DuplicateIds" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder41"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    tools:ignore="DuplicateIds"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/remainder42"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    tools:ignore="DuplicateIds"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/hr4"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                    tools:ignore="DuplicateIds"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="settingBtn"
-        android:id="@+id/button4" />
 
 </RelativeLayout>
