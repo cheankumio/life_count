@@ -1,5 +1,6 @@
 package lifetime.apper.klc.lifetime;
 
+
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
@@ -11,15 +12,11 @@ import lifetime.apper.klc.lifetime.Service.appWidget_Service;
 
 /**
  * Implementation of App Widget functionality.
+ * App Widget Configuration implemented in {@link NowMainActivity NowMainActivity}
  */
 public class LifeCount_appWidget extends AppWidgetProvider {
-    private static final String TAG = "smw";
     public static final String FILE_WIDGET_NAME = "widgetId.txt";
     public static final String SP_BASE_KEY = "widgetid_";
-    private static final String ACTION_WALLPAPER_COLOR_CHANGE = "com.android.launcher3.WALLPAPER_MASTER_COLOR_CHANGE";//壁紙改變廣播
-    private static final String EXTRA_WHITE_WALLPAPER = "whiteWallpaper";
-    public static final String ISWHITEWALLER_FILENAME = "isWhiteWaller";
-    public static final String ISWHITEWALLER = "isWhiteWaller";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
@@ -43,7 +40,6 @@ public class LifeCount_appWidget extends AppWidgetProvider {
     }
     @Override
     public void onEnabled(Context context) {
-        context.startService(new Intent(context, appWidget_Service.class));
         super.onEnabled(context);
     }
 

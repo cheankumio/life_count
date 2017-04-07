@@ -238,8 +238,8 @@ public class NowMainActivity extends AppCompatActivity {
                 if(usernum<4) {
                     Intent intent = new Intent();
                     intent.setClass(this, signUpUser.class);
-                    startActivity(intent);
-                    ly[usernum].setVisibility(View.VISIBLE);
+                    startActivityForResult(intent,77);
+                    //ly[usernum].setVisibility(View.VISIBLE);
                 }else{
                     Toast.makeText(this, "請購買付費完整版，可增加卡片數量上限。", Toast.LENGTH_SHORT).show();
                 }
@@ -247,4 +247,18 @@ public class NowMainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch(requestCode){
+            case 77:
+                if(resultCode!=0){
+                    ly[usernum].setVisibility(View.VISIBLE);
+                }
+                break;
+        }
+    }
+
 }

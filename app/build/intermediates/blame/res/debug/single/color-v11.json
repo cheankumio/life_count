@@ -1,10 +1,10 @@
 [
     {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+        "source": "C:\\Users\\c1103304\\.android\\build-cache\\2f76bb1e7115961f5b8b76bbefb041b66da3cbdc\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "D:\\androidSample\\lifetime\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+        "source": "C:\\Users\\c1103304\\.android\\build-cache\\2f76bb1e7115961f5b8b76bbefb041b66da3cbdc\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     }
 ]

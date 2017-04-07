@@ -36,10 +36,9 @@
                     android:paddingTop="5dp">
 
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/name1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/name1"
                         android:gravity="center_horizontal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="#FFFFFF"
@@ -67,33 +66,30 @@
 
 
                     <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/remainder11"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/remainder12"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/hr1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hr1"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:layout_weight="1"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -112,10 +108,9 @@
                     android:paddingTop="5dp">
 
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/name2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/name2"
                         android:gravity="center_horizontal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="#FFFFFF"
@@ -140,38 +135,36 @@
                         app:rcReverse="true"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp" />
+
                     <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/remainder21"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                        tools:ignore="DuplicateIds"
-                        android:gravity="right"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="TextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <TextView
                         android:id="@+id/remainder22"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                        tools:ignore="DuplicateIds"
-                        android:gravity="right"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="TextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hr2"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                        tools:ignore="DuplicateIds"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <TextView
+                        android:id="@+id/hr2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -188,10 +181,9 @@
                     android:paddingTop="5dp">
 
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/name3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/name3"
                         android:gravity="center_horizontal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="#FFFFFF"
@@ -216,33 +208,31 @@
                         app:rcReverse="true"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp" />
+
                     <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/remainder31"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/remainder32"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/hr3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hr3"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -259,11 +249,11 @@
                     android:paddingRight="12dp"
                     android:paddingBottom="12dp"
                     android:paddingTop="5dp">
+
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/name4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/name4"
                         android:gravity="center_horizontal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="#FFFFFF"
@@ -289,37 +279,36 @@
                         app:rcReverse="true"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp" />
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/remainder41"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                        tools:ignore="DuplicateIds"
-                        android:gravity="right"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/remainder42"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                        tools:ignore="DuplicateIds"
-                        android:gravity="right"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
 
                     <TextView
-                        android:text="TextView"
+                        android:id="@+id/remainder41"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hr4"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-                        tools:ignore="DuplicateIds"
                         android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <TextView
+                        android:id="@+id/remainder42"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
+
+                    <TextView
+                        android:id="@+id/hr4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

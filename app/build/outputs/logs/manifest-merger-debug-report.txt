@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:2:1-37:12
 	package
 		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
@@ -14,16 +14,16 @@ ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:5:5-34:19
-MERGED from [com.android.support:appcompat-v7:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-compat:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:25:5-20
+ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:5:5-35:19
+MERGED from [com.android.support:appcompat-v7:24.2.1] C:\Users\c1103304\.android\build-cache\2f76bb1e7115961f5b8b76bbefb041b66da3cbdc\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\c1103304\.android\build-cache\41a04f4899c0c2d4b3177ab309747b279be3e177\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\c1103304\.android\build-cache\5c2575281d045db022d802e725deab3ba0854364\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\c1103304\.android\build-cache\78a42a96e3dde702e6f17f043ac800020bb07ba3\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\c1103304\.android\build-cache\ef0f02669e07d076cc52e417da3429d69514a5fc\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\c1103304\.android\build-cache\6e02f774b8f7da9d95624feece6583d993409648\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] C:\Users\c1103304\.android\build-cache\b61127256a015cfccfaad68419ae662a52992bcf\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\c1103304\.android\build-cache\1377b07d69054b5a4ffe240c9d2d0ae154d49299\output\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\c1103304\.android\build-cache\fdf9fd458d174d4978d3cbfe37715024091fc685\output\AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:8:9-41
 	android:supportsRtl
@@ -84,18 +84,18 @@ ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:30:13-32:7
 		ADDED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml:31:17-58
 uses-sdk
 INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:support-compat:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:21:5-23:58
-MERGED from [com.akexorcist:RoundCornerProgressBar:2.0.3] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.akexorcist\RoundCornerProgressBar\2.0.3\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:appcompat-v7:24.2.1] C:\Users\c1103304\.android\build-cache\2f76bb1e7115961f5b8b76bbefb041b66da3cbdc\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\c1103304\.android\build-cache\41a04f4899c0c2d4b3177ab309747b279be3e177\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\c1103304\.android\build-cache\5c2575281d045db022d802e725deab3ba0854364\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\c1103304\.android\build-cache\78a42a96e3dde702e6f17f043ac800020bb07ba3\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\c1103304\.android\build-cache\ef0f02669e07d076cc52e417da3429d69514a5fc\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\c1103304\.android\build-cache\6e02f774b8f7da9d95624feece6583d993409648\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] C:\Users\c1103304\.android\build-cache\b61127256a015cfccfaad68419ae662a52992bcf\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.2.1] C:\Users\c1103304\.android\build-cache\1377b07d69054b5a4ffe240c9d2d0ae154d49299\output\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\c1103304\.android\build-cache\fdf9fd458d174d4978d3cbfe37715024091fc685\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.akexorcist:RoundCornerProgressBar:2.0.3] C:\Users\c1103304\.android\build-cache\919b604cf98432f749a7e6ad65222df813aab59f\output\AndroidManifest.xml:8:5-10:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:24.2.1] D:\androidSample\lifetime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:24.2.1] C:\Users\c1103304\.android\build-cache\2f76bb1e7115961f5b8b76bbefb041b66da3cbdc\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
 		INJECTED from D:\androidSample\lifetime\app\src\main\AndroidManifest.xml
